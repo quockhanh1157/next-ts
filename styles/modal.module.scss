@@ -1,0 +1,22 @@
+@import "mixins";
+
+.modal {
+  position: relative;
+}
+
+.modal_background {
+  width: 100%;
+}
+
+.modal_content {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.modal_child {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}

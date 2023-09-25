@@ -1,0 +1,114 @@
+@import "mixins";
+
+.active {
+  color: black;
+}
+
+.container {
+  width: 100%;
+  max-width: calc(100% - 1rem);
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  background: $ribbon;
+}
+
+.header_container {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header_icon {
+  animation: rotate 20s infinite;
+
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+.header_input {
+  display: none;
+}
+
+.header_nav {
+  display: none;
+
+  & > ul {
+    display: flex;
+    gap: 10px;
+  }
+
+  & > ul > li {
+    list-style: none;
+
+    &:hover, :focus {
+      color: black;
+    }
+  }
+}
+
+.header_box {
+  //visibility: hidden;
+  width: 50px;
+  height: 40px;
+  border: 1px solid $grey-30;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 5px;
+  box-sizing: border-box;
+
+  & > hr {
+    height: 3px;
+    background: $grey-30;
+  }
+}
+
+
+/*mobile*/
+@media screen and (max-width: 767px) {
+  .header_container {
+    & > div:first-child {
+      & > label {
+        line-height: 40px;
+      }
+
+      .header_input:checked + nav {
+        display: block;
+      }
+    }
+  }
+}
+
+/*tablet*/
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .header_box {
+    visibility: hidden;
+  }
+  .header_nav {
+    display: block;
+  }
+}
+
+/*pc*/
+@media screen and (min-width: 1200px) {
+  .header_nav {
+    display: block;
+  }
+  .header_box {
+    visibility: hidden;
+  }
+}
+
